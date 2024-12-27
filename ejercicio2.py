@@ -14,6 +14,6 @@ while True:
             break
         suma += numero_usuario
     except ValueError:
-        print("Ingreso un valor diferente a un número")
+        print("Ingresaste un valor diferente a un número")
 
 print(f"La suma de los número positivos es: {suma}")
