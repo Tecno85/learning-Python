@@ -1,36 +1,32 @@
-""" Ejercicio 7: Menú interactivo
+"""
+Ejercicio 8: Número mayor
 
-Crea un menú que siga mostrando opciones hasta que el usuario elija “Salir”.
-Por ejemplo:
-1.	Saludar
-2.	Mostrar hora actual
-3.	Salir
+Pide al usuario que introduzca números hasta que escriba “0”. Al final,
+muestra cuál fue el número más grande que introdujo.
 """
 
-print("\nMenú Interactivo, escoge una de las opciones: \n"
-      "1. Recibir un saludo\n"
-      "2. Información de la hora actual\n"
-      "3. Salir del Menú\n")
+#  Inicializando la variable max_num con la palabra reservado None.
+max_num = None
 
-nombre_usuario = str(input("Ingresa tu nombre: "))
-
+#  Iniciando bucle que permite diferentes opciones.
 while True:
     try:
-        print("\nMenú Interactivo, escoge una de las opciones: \n"
-              "1. Recibir un saludo\n"
-              "2. Información de la hora actual\n"
-              "3. Salir del Menú\n")
-        opcion_usuario = int(
-            input("\nEscoge una de los opciones mencionadas: "))
-        if opcion_usuario == 1:
-            print(f"Bienvenido a Colombia, {nombre_usuario} es un gusto para "
-                  "nosotros que nos visites ")
-        elif opcion_usuario == 2:
-            print(f"{nombre_usuario}, la hora es: 12:30 pm")
-        elif opcion_usuario == 3:
-            print(f"Hasta luego, {nombre_usuario} ¡Gracias por usar el Menú")
+        #  Pidiendo datos por pantalla a usuario.
+        numero_usuario = int(input("\nIngrese un número entero o cero (0) para salir: "))
+
+        #  Sale del bucle y manda mensaje cuando no se ingresa ningún dato.
+        if numero_usuario == 0:
+            if max_num is None:
+                print("\nNo ingresaste ningún número entero.\n")
             break
-        else:
-            print("Ingresa un valor del 1 al 3: ")
+
+        #  Actualizando el número cuando sea necesario.
+        if max_num is None or numero_usuario > max_num:
+            max_num = numero_usuario
+
     except ValueError:
-        print("Haz ingresado un dato invalido, Ingresa un número del 1 al 3")
+        print("\nValor ingresado inválido, solo números enteros.\n")
+
+# Imprime el número mayor si es necesario.
+if max_num is not None:
+    print(f"\nEl número mayor es: {max_num}\n")
